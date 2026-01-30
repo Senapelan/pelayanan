@@ -1,98 +1,231 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kelurahan Padang Terubuk</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelurahan Senapelan</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
+body {
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* VIDEO BACKGROUND */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(20px) brightness(0.6);
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(0,30,60,0.6), rgba(0,0,0,0.7));
+    z-index: -1;
+}
+
+/* RUNNING TEXT */
+.marquee {
+    background: rgba(0,0,0,0.4);
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 18s linear infinite;
+    font-weight: 500;
+    color: #9fdcff;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    text-shadow: 0 0 15px #00bfff;
+}
+
+header p {
+    margin-top: 10px;
+    font-style: italic;
+    color: #cfefff;
+}
+
+/* GRID MENU */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px 80px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    text-align: center;
+    transition: 0.4s ease;
+}
+
+.card img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 12px #00bfff);
+    transition: 0.4s;
+}
+
+.card:hover img {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 25px #00ffff);
+}
+
+.card a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.card h3 {
+    margin-top: 15px;
+    font-weight: 500;
+    color: #e8f7ff;
+}
+
+/* ANIMASI MASUK */
+.card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s ease forwards;
+}
+
+.card:nth-child(1){animation-delay:.1s}
+.card:nth-child(2){animation-delay:.2s}
+.card:nth-child(3){animation-delay:.3s}
+.card:nth-child(4){animation-delay:.4s}
+.card:nth-child(5){animation-delay:.5s}
+.card:nth-child(6){animation-delay:.6s}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+    header h1 { font-size: 2rem; }
+}
+</style>
 </head>
+
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="header">
-  <div class="logo">
-    <img src="assets/img/logo.png" alt="Logo">
-    <span>Kelurahan Padang Terubuk</span>
-  </div>
+<!-- BACKGROUND -->
+<div class="video-bg">
+    <video autoplay muted loop>
+        <source src="data/video/home.mp4" type="video/mp4">
+    </video>
+</div>
+<div class="overlay"></div>
 
-  <nav class="nav-desktop">
-    <a href="#">Beranda</a>
-    <a href="#pelayanan">Pelayanan</a>
-    <a href="#profil">Profil</a>
-    <a href="#kontak">Kontak</a>
-  </nav>
+<!-- AUDIO -->
+<audio autoplay loop>
+    <source src="data/sound/home.mp3" type="audio/mpeg">
+</audio>
 
-  <div class="menu-btn" onclick="openMenu()">☰</div>
-</header>
-
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>
-      Selamat Datang di<br>
-      <span>Kelurahan Padang Terubuk</span>
-    </h1>
-
-    <p>
-      Jalan Melur No.04 RT 004 RW 005<br>
-      Kecamatan Senapelan
-    </p>
-
-    <a href="#pelayanan" class="btn-primary">Buka Pelayanan</a>
-  </div>
-</section>
-
-<!-- ================= PELAYANAN ================= -->
-<section class="section" id="pelayanan">
-  <h2>Layanan Administrasi</h2>
-
-  <div class="grid">
-    <a href="#" class="card">Surat Domisili</a>
-    <a href="#" class="card">Surat Usaha</a>
-    <a href="#" class="card">Surat Tidak Mampu</a>
-    <a href="#" class="card">Surat Pengantar</a>
-  </div>
-</section>
-
-<!-- ================= PROFIL ================= -->
-<section class="section light" id="profil">
-  <h2>Profil Kelurahan</h2>
-  <p class="text-center">
-    Kelurahan Padang Terubuk merupakan bagian dari Kecamatan Senapelan
-    yang berkomitmen memberikan pelayanan cepat, transparan, dan modern.
-  </p>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="footer" id="kontak">
-  <p>© 2026 Kelurahan Padang Terubuk</p>
-</footer>
-
-<!-- ================= MOBILE MENU ================= -->
-<div class="mobile-menu" id="mobileMenu">
-  <div class="close" onclick="closeMenu()">✕</div>
-
-  <a href="#">Beranda</a>
-
-  <a href="javascript:void(0)" onclick="toggleSub()">
-    Pelayanan ▼
-  </a>
-
-  <div class="submenu" id="submenuPelayanan">
-    <a href="#">Surat Domisili</a>
-    <a href="#">Surat Usaha</a>
-    <a href="#">Surat Tidak Mampu</a>
-  </div>
-
-  <a href="#profil">Profil</a>
-  <a href="#kontak">Kontak</a>
+<!-- RUNNING TEXT -->
+<div class="marquee">
+    <span>Selamat Datang di Website Resmi Kecamatan Senapelan — Melayani Dengan Hati, Membangun Negeri</span>
 </div>
 
-<script src="assets/js/main.js"></script>
+<!-- HEADER -->
+<header>
+    <h1>Selamat Datang di Senapelan Website</h1>
+    <p>"Pelayanan terbaik lahir dari keikhlasan dan kebersamaan."</p>
+</header>
+
+<!-- MENU -->
+<div class="container">
+    <div class="grid">
+
+        <div class="card">
+            <a href="https://example.com/padang-terubuk">
+                <img src="data/img/padang-terubuk.png">
+                <h3>Website Kelurahan Padang Terubuk</h3>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="https://example.com/padang-bulan">
+                <img src="data/img/padang-bulan.png">
+                <h3>Website Kelurahan Padang Bulan</h3>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="https://example.com/kampung-baru">
+                <img src="data/img/kampung-baru.png">
+                <h3>Website Kelurahan Kampung Baru</h3>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="https://example.com/kampung-bandar">
+                <img src="data/img/kampung-bandar.png">
+                <h3>Website Kelurahan Kampung Bandar</h3>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="https://example.com/kampung-dalam">
+                <img src="data/img/kampung-dalam.png">
+                <h3>Website Kelurahan Kampung Dalam</h3>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="https://example.com/sago">
+                <img src="data/img/sago.png">
+                <h3>Website Kelurahan Sago</h3>
+            </a>
+        </div>
+
+    </div>
+</div>
+
 </body>
 </html>
