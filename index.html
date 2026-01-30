@@ -122,11 +122,9 @@ header p {
    ========================= */
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    /* 3 kolom dengan lebar sama */
-
-    column-gap: 80px;            /* Jarak kiri–kanan antar kartu */
-    row-gap: 80px;               /* Jarak atas–bawah antar baris */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 80px;
+    row-gap: 80px;    /* JARAK ATAS–BAWAH BARIS */
 }
 
 /* =========================
