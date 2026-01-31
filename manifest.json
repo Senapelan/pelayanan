@@ -1,0 +1,15 @@
+{
+  "name": "Senapelan Satu Pintu",
+  "short_name": "Satu Pintu",
+  "start_url": "/Home/",
+  "display": "standalone",
+  "background_color": "#0a1e33",
+  "theme_color": "#0a1e33",
+  "icons": [
+    {
+      "src": "data/foto/icon-andro/icon-andro.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}
