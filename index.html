@@ -147,6 +147,15 @@ header p {
 /* =========================
    GRID MENU
    ========================= */
+
+/* CARD UTAMA DI ATAS */
+.card-utama {
+    max-width: 320px;
+    margin: 0 auto 80px; /* tengah + jarak ke grid bawah */
+    text-align: center;
+}
+
+/* GRID CARD BAWAH */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -264,15 +273,16 @@ header p {
 
 <!-- MENU -->
 <div class="container">
-    <div class="grid">
-
-        <div class="card">
+    
+    <div class="card card-utama">
             <a href="https://kec-senapelan.pekanbaru.go.id/">
                 <img src="data/foto/kecamatansenapelan.png">
                 <h3>Website Kecamatan Senapelan</h3>
             </a>
         </div>
-        
+    
+    <div class="grid">
+        <!-- GRID CARD BAWAH -->
         <div class="card">
             <a href="https://senapelan.github.io/Home/kelurahankampungbandar.html">
                 <img src="data/foto/kampungbandar.png">
