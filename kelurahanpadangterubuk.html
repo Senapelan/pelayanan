@@ -175,7 +175,7 @@ body{
 .btn-primary{
   margin-top:20px;
   background:#1e6bff;
-  color:#000;
+  color:#fff;
   padding:12px 22px;
   border-radius:30px;
   text-decoration:none;
@@ -349,9 +349,11 @@ body{
 <style>
 /* ===== WRAPPER ===== */
 .profil-wrapper{
+  max-width:1200px;      /* 🔑 KUNCI UTAMA */
   display:grid;
   grid-template-columns:2fr 1fr;
   gap:24px;
+  align-items:start;     /* ⬅ penting */
 }
 
 /* ===== CARD UMUM ===== */
@@ -366,18 +368,18 @@ body{
 .profil-kiri{
   display:flex;
   gap:24px;
-  align-items:center;
+  align-items:flex-start;  /* ⬅ BUKAN center */
 }
 
 /* FOTO 4x6 */
 .profil-foto{
-  width:160px;
+  width:400px;
   flex-shrink:0;
 }
 
 .profil-foto img{
   width:100%;
-  aspect-ratio:3/4;
+  aspect-ratio:9/10;
   object-fit:cover;
   border-radius:12px;
 }
@@ -388,6 +390,8 @@ body{
   margin-bottom:8px;
   padding-left:12px;
   position:relative;
+  text-align:left;
+
 }
 
 .sambutan h3::before{
@@ -395,9 +399,9 @@ body{
   position:absolute;
   left:0;
   top:0;
-  width:4px;
+  width:8px;
   height:100%;
-  background:#ff6b00;
+  background:#e30707;
   border-radius:4px;
 }
 
@@ -515,7 +519,7 @@ body{
     <!-- BOX KIRI -->
     <div class="profil-card profil-kiri">
       <div class="profil-foto">
-        <img src="data/foto/lurah/juni.png" alt="Foto Lurah">
+        <img src="data/img/juni.png" alt="Foto Lurah">
       </div>
 
       <div class="sambutan">
